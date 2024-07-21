@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/home_screen.dart';
+import 'package:islami_app/taps/hadeth/hadeth_tab.dart';
+import 'package:islami_app/taps/radio/radio_tab.dart';
+import 'package:islami_app/taps/sebha/sebha_tab.dart';
+import 'package:islami_app/taps/setting/setting_tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +19,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.routeName:(context) => HomeScreen() ,
+        SebhaTabs.routeName :(context) => SebhaTabs() ,
+        RadioTabs.routeName :(context) => RadioTabs() ,
+        HadethTabs.routeName:(context) => HadethTabs() ,
+        SettingTabs.routeName:(context) => SettingTabs() ,
+
       },
       initialRoute: HomeScreen.routeName,
       theme:AppThem.lightThem ,

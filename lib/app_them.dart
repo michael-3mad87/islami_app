@@ -13,6 +13,7 @@ class AppThem {
       backgroundColor: lightPrimary ,
       selectedItemColor: black ,
       type: BottomNavigationBarType.fixed ,
+      unselectedItemColor: white ,
     )
 
   );
