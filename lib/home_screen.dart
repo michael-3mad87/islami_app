@@ -15,12 +15,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-  List <Widget> tabs = [
-    QuranTabs() ,
-    HadethTabs() ,
+  List<Widget> tabs = [
+    QuranTabs(),
+    HadethTabs(),
     SebhaTabs(),
-    RadioTabs() ,
-    SettingTabs() ,
+    RadioTabs(),
+    SettingTabs(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('إسلامي'),
+        ),
         body: tabs[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
             onTap: (value) {
