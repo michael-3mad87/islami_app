@@ -267,11 +267,7 @@ class QuranTabs extends StatelessWidget {
                         color: AppThem.black,
                       ),
                     ),
-                    VerticalDivider(
-                      thickness: 3,
-                      width: 3,
-                      color: AppThem.lightPrimary,
-                    ),
+                  
                     Text(
                       'اسم السورة',
                       style: TextStyle(
@@ -300,11 +296,7 @@ class QuranTabs extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          VerticalDivider(
-                            thickness: 3,
-                            width: 3,
-                            color: AppThem.lightPrimary,
-                          ),
+                          
                           Expanded(
                             child: GestureDetector(
                               onTap: () {

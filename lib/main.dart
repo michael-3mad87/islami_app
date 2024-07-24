@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/home_screen.dart';
+import 'package:islami_app/taps/hadeth/hadeth_details.dart';
 import 'package:islami_app/taps/hadeth/hadeth_tab.dart';
 import 'package:islami_app/taps/quran/sura_details_screen.dart';
 import 'package:islami_app/taps/radio/radio_tab.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         HadethTabs.routeName:(context) => HadethTabs() ,
         SettingTabs.routeName:(context) => SettingTabs() ,
         SuraDetails.routeName:(context) => SuraDetails(),
+        HadethDetails.routeName:(context) => HadethDetails(),
       },
       initialRoute: HomeScreen.routeName,
       theme:AppThem.lightThem ,
