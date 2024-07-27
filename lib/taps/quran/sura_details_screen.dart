@@ -17,7 +17,7 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as SuraModel;
-    suraLoading();
+  if(ayat.isEmpty) { suraLoading();}
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
