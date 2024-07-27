@@ -20,19 +20,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        HomeScreen.routeName:(context) => HomeScreen() ,
-        SebhaTabs.routeName :(context) => SebhaTabs() ,
-        RadioTabs.routeName :(context) => RadioTabs() ,
-        HadethTabs.routeName:(context) => HadethTabs() ,
-        SettingTabs.routeName:(context) => SettingTabs() ,
-        SuraDetails.routeName:(context) => SuraDetails(),
-        HadethDetails.routeName:(context) => HadethDetails(),
+        HomeScreen.routeName: (context) => HomeScreen(),
+        SebhaTabs.routeName: (context) => SebhaTabs(),
+        RadioTabs.routeName: (context) => RadioTabs(),
+        HadethTabs.routeName: (context) => HadethTabs(),
+        SettingTabs.routeName: (context) => SettingTabs(),
+        SuraDetails.routeName: (context) => SuraDetails(),
+        HadethDetailsSCreen.routeName: (context) => HadethDetailsSCreen(),
       },
       initialRoute: HomeScreen.routeName,
-      theme:AppThem.lightThem ,
+      theme: AppThem.lightThem,
       darkTheme: AppThem.darkThem,
-      themeMode: ThemeMode.light ,
+      themeMode: ThemeMode.light,
     );
   }
 }
-
