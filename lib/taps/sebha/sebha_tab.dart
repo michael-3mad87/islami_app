@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'dart:math';
 
 import 'package:islami_app/app_them.dart';
+import 'package:islami_app/taps/setting/settingProvider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTabs extends StatefulWidget {
   static const String routeName = "/SebhaTab";
@@ -46,6 +48,7 @@ class _SebhaTabsState extends State<SebhaTabs>
 
   @override
   Widget build(BuildContext context) {
+       SettingProvider settingProvider = Provider.of<SettingProvider>(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -73,7 +76,8 @@ class _SebhaTabsState extends State<SebhaTabs>
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage(
-                                    "assets/images/body_sebha_logo.png"),
+                                  settingProvider.themMode== ThemeMode.light ?
+                                    "assets/images/body_sebha_logo.png":"assets/images/body_sebha_dark.png"),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -89,7 +93,8 @@ class _SebhaTabsState extends State<SebhaTabs>
                           decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(
-                                    "assets/images/head_sebha_logo.png"),
+                                  settingProvider.themMode== ThemeMode.light ?
+                                    "assets/images/head_sebha_logo.png": "assets/images/head_sebha_dark.png"),
                                 fit: BoxFit.cover),
                           ),
                         ),
@@ -101,11 +106,7 @@ class _SebhaTabsState extends State<SebhaTabs>
                   ),
                   Text(
                     'عدد التسبيحات',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall
                   ),
                 ],
               ),
@@ -121,16 +122,12 @@ class _SebhaTabsState extends State<SebhaTabs>
                     height: 81,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xffc9b496),
+                      color: settingProvider.themMode== ThemeMode.light ? Color(0xffc9b496):Color(0xff141A2E),
                     ),
                     child: Center(
                       child: Text(
                         counter.toString(),
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 25,
-                        ),
+                         style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white)
                       ),
                     ),
                   ),
@@ -140,16 +137,12 @@ class _SebhaTabsState extends State<SebhaTabs>
                     height: 51,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: AppThem.lightPrimary,
+                      color: settingProvider.themMode== ThemeMode.light ? Color(0xffc9b496):AppThem.gold,
                     ),
                     child: Center(
                       child: Text(
                         getSebhaText(),
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 25,
-                        ),
+                        style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.black),
                       ),
                     ),
                   )

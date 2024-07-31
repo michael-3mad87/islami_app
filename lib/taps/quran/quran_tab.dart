@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/taps/quran/sura_details_screen.dart';
+import 'package:islami_app/taps/setting/settingProvider.dart';
+import 'package:provider/provider.dart';
 
 class QuranTabs extends StatelessWidget {
   static const String routeName = "/QuranTab";
@@ -241,6 +243,7 @@ class QuranTabs extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+       SettingProvider settingProvider = Provider.of<SettingProvider>(context);
     return Scaffold(
       body: Column(
         children: [
@@ -250,7 +253,7 @@ class QuranTabs extends StatelessWidget {
           ),
           Divider(
             thickness: 3,
-            color: AppThem.lightPrimary,
+            color: settingProvider.themMode== ThemeMode.light ? AppThem.lightPrimary:AppThem.gold,
           ),
           Expanded(
             flex: 7,
@@ -261,26 +264,18 @@ class QuranTabs extends StatelessWidget {
                   children: [
                     Text(
                       'عدد الآيات',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
-                        color: AppThem.black,
-                      ),
+                       style: Theme.of(context).textTheme.headlineLarge
                     ),
                   
                     Text(
                       'اسم السورة',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: AppThem.black,
-                      ),
+                      style: Theme.of(context).textTheme.headlineLarge
                     ),
                   ],
                 ),
                 Divider(
                   thickness: 2,
-                  color: AppThem.lightPrimary,
+                  color: settingProvider.themMode== ThemeMode.light ? AppThem.lightPrimary:AppThem.gold,
                 ),
                 Expanded(
                   child: ListView.separated(
