@@ -1,0 +1,14 @@
+{
+  "islami" : "إسلامي",
+  "quran": "القرآن" ,
+  "hadeth":"الحديث" ,
+  "sebha":"السبحه", 
+  "radio":"الراديو" ,
+  "setting":"الإعدادات",
+  "language": "اللغه",
+  "darkmode":"الوضع الليلي",
+  "nameOfSura":"اسم السوره",
+  "numberOfAyat":"عدد الايات",
+  "ahadeths":"الأحاديث",
+  "numberofpraises":"عدد التسبيحات"
+}

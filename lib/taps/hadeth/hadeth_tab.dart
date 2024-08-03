@@ -5,6 +5,7 @@ import 'package:islami_app/taps/hadeth/hadeth.dart';
 import 'package:islami_app/taps/hadeth/hadeth_details.dart';
 import 'package:islami_app/taps/setting/settingProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethTabs extends StatefulWidget {
   static const String routeName = "/hadethTab";
@@ -40,7 +41,7 @@ class _HadethTabsState extends State<HadethTabs> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      ' الأحاديث',
+                      AppLocalizations.of(context)!.ahadeths,
                        style: Theme.of(context).textTheme.headlineLarge
                     ),
                   ],

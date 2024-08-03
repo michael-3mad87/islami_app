@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/taps/setting/settingProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTabs extends StatefulWidget {
   static const String routeName = "/SebhaTab";
@@ -105,7 +106,7 @@ class _SebhaTabsState extends State<SebhaTabs>
                     height: 35,
                   ),
                   Text(
-                    'عدد التسبيحات',
+                    AppLocalizations.of(context)!.numberofpraises,
                     style: Theme.of(context).textTheme.headlineSmall
                   ),
                 ],

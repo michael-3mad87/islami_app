@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/home_screen.dart';
@@ -10,6 +9,8 @@ import 'package:islami_app/taps/sebha/sebha_tab.dart';
 import 'package:islami_app/taps/setting/settingProvider.dart';
 import 'package:islami_app/taps/setting/setting_tab.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   SettingProvider settingProvider = Provider.of<SettingProvider>(context);
+    SettingProvider settingProvider = Provider.of<SettingProvider>(context);
+  
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -37,6 +39,9 @@ class MyApp extends StatelessWidget {
       theme: AppThem.lightThem,
       darkTheme: AppThem.darkThem,
       themeMode: settingProvider.themMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+     locale:Locale(settingProvider.language) ,
     );
   }
 }

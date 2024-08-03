@@ -75,6 +75,10 @@ class AppThem {
         fontSize: 32 ,
         fontWeight: FontWeight.w400 ,
         color: white,
+      ) ,
+      headlineMedium: TextStyle(
+         fontWeight: FontWeight.w400 ,
+        color: white,
       )
     ),
     switchTheme: SwitchThemeData(

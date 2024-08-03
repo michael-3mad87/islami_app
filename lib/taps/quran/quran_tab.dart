@@ -5,6 +5,7 @@ import 'package:islami_app/app_them.dart';
 import 'package:islami_app/taps/quran/sura_details_screen.dart';
 import 'package:islami_app/taps/setting/settingProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranTabs extends StatelessWidget {
   static const String routeName = "/QuranTab";
@@ -259,19 +260,30 @@ class QuranTabs extends StatelessWidget {
             flex: 7,
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'عدد الآيات',
-                       style: Theme.of(context).textTheme.headlineLarge
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(start: 32),
+                  child: IntrinsicHeight(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            AppLocalizations.of(context)!.numberOfAyat,
+                             style: Theme.of(context).textTheme.headlineMedium
+                          ),
+                        ),
+                        VerticalDivider(
+                        color: AppThem.lightPrimary,
+                         thickness: 2,
+                              ),
+                        Expanded(
+                          child: Text(
+                            AppLocalizations.of(context)!.nameOfSura,
+                            style: Theme.of(context).textTheme.headlineMedium
+                          ),
+                        ),
+                      ],
                     ),
-                  
-                    Text(
-                      'اسم السورة',
-                      style: Theme.of(context).textTheme.headlineLarge
-                    ),
-                  ],
+                  ),
                 ),
                 Divider(
                   thickness: 2,
