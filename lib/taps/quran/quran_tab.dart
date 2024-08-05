@@ -261,7 +261,7 @@ class QuranTabs extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 32),
+                  padding: const EdgeInsetsDirectional.only(start: 25),
                   child: IntrinsicHeight(
                     child: Row(
                       children: [

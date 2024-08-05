@@ -72,7 +72,7 @@ class AppThem {
         color: gold,
       ),
         headlineLarge: TextStyle(
-        fontSize: 32 ,
+        fontSize: 30 ,
         fontWeight: FontWeight.w400 ,
         color: white,
       ) ,
