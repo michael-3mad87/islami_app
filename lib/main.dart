@@ -6,17 +6,28 @@ import 'package:islami_app/taps/hadeth/hadeth_tab.dart';
 import 'package:islami_app/taps/quran/sura_details_screen.dart';
 import 'package:islami_app/taps/radio/radio_tab.dart';
 import 'package:islami_app/taps/sebha/sebha_tab.dart';
+import 'package:islami_app/taps/setting/settingProvider.dart';
 import 'package:islami_app/taps/setting/setting_tab.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SettingProvider settingProvider = SettingProvider();
+  await settingProvider.loadSettings(); 
+
+  runApp(
+      ChangeNotifierProvider(create: (_) => settingProvider, child: MyApp()));
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SettingProvider settingProvider = Provider.of<SettingProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -31,7 +42,10 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       theme: AppThem.lightThem,
       darkTheme: AppThem.darkThem,
-      themeMode: ThemeMode.light,
+      themeMode: settingProvider.themMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(settingProvider.language),
     );
   }
 }

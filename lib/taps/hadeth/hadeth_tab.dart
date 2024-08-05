@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/taps/hadeth/hadeth.dart';
 import 'package:islami_app/taps/hadeth/hadeth_details.dart';
+import 'package:islami_app/taps/setting/settingProvider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethTabs extends StatefulWidget {
   static const String routeName = "/hadethTab";
@@ -17,6 +20,7 @@ class _HadethTabsState extends State<HadethTabs> {
 
   @override
   Widget build(BuildContext context) {
+       SettingProvider settingProvider = Provider.of<SettingProvider>(context);
  if(ahadeth.isEmpty) {loadAhadeth();}
     return Scaffold(
       body: Column(
@@ -25,9 +29,9 @@ class _HadethTabsState extends State<HadethTabs> {
             flex: 3,
             child: Image.asset('assets/images/hadeth_logo.png'),
           ),
-          Divider(
+         Divider(
             thickness: 3,
-            color: AppThem.lightPrimary,
+            color: settingProvider.themMode== ThemeMode.light ? AppThem.lightPrimary:AppThem.gold,
           ),
           Expanded(
             flex: 7,
@@ -37,19 +41,15 @@ class _HadethTabsState extends State<HadethTabs> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      ' الأحاديث',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
-                        color: AppThem.black,
-                      ),
+                      AppLocalizations.of(context)!.ahadeths,
+                       style: Theme.of(context).textTheme.headlineLarge
                     ),
                   ],
                 ),
-                Divider(
-                  thickness: 2,
-                  color: AppThem.lightPrimary,
-                ),
+               Divider(
+            thickness: 3,
+            color: settingProvider.themMode== ThemeMode.light ? AppThem.lightPrimary:AppThem.gold,
+          ),
                 Expanded(
                   child: ahadeth.isEmpty
               ? Center(child: CircularProgressIndicator(),)

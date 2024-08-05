@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_them.dart';
 import 'package:islami_app/taps/quran/quran_tab.dart';
+import 'package:islami_app/taps/setting/settingProvider.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   SuraDetails({super.key});
@@ -17,11 +19,12 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as SuraModel;
+       SettingProvider settingProvider = Provider.of<SettingProvider>(context);
   if(ayat.isEmpty) { suraLoading();}
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/default_bg.png"),
+          image: AssetImage( settingProvider.themMode== ThemeMode.light ?"assets/images/default_bg.png":"assets/images/dark_bg.png"),
           fit: BoxFit.cover,
         ),
       ),
@@ -33,7 +36,7 @@ class _SuraDetailsState extends State<SuraDetails> {
           padding: EdgeInsets.all(30),
           margin: EdgeInsets.all(40),
           decoration: BoxDecoration(
-              color: AppThem.white, borderRadius: BorderRadius.circular(30)),
+              color: settingProvider.themMode== ThemeMode.light? AppThem.white:AppThem.darkPrimary, borderRadius: BorderRadius.circular(30)),
           child: ayat.isEmpty
               ? Center(child: CircularProgressIndicator(),)
               : ListView.builder(
@@ -41,7 +44,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                   itemBuilder: (BuildContext context, int index) {
                     return Text(
                       ayat[index],
-                      style: AppThem.lightThem.textTheme.titleLarge,
+                      style:Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 25),
                       textAlign: TextAlign.center,
                     );
                   },
